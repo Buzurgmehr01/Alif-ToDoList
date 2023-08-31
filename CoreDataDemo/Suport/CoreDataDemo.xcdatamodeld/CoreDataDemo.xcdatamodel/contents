@@ -7,4 +7,9 @@
         <attribute name="login" optional="YES" attributeType="String"/>
         <attribute name="password" optional="YES" attributeType="String"/>
     </entity>
+    <entity name="UserSroty" representedClassName="UserSroty" syncable="YES">
+        <attribute name="status" optional="YES" attributeType="String"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <attribute name="titleDescription" optional="YES" attributeType="String"/>
+    </entity>
 </model>
