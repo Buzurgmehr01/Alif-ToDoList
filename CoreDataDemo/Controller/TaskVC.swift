@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreData
+import SnapKit
 
 class TaskVC: UIViewController {
     
@@ -27,7 +28,11 @@ class TaskVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configure()
         
+    }
+    
+    func configure(){
         navigationItem.title = "ToDo List"
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
         navigationItem.rightBarButtonItem = addButton
@@ -38,10 +43,12 @@ class TaskVC: UIViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(tableView)
-        tableView.topAnchor.constraint(equalTo: view.topAnchor, constant: 5).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
-        tableView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 5).isActive = true
-        tableView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -5).isActive = true
+        tableView.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(5)
+            $0.left.right.equalToSuperview().inset(5)
+            $0.bottom.equalToSuperview().inset(0)
+        }
+
     }
 
     @objc func addButtonTapped() {
