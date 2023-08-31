@@ -48,24 +48,26 @@ class TaskVC: UIViewController {
             $0.left.right.equalToSuperview().inset(5)
             $0.bottom.equalToSuperview().inset(0)
         }
-
     }
 
     @objc func addButtonTapped() {
       
-        let ac = UIAlertController(title: "Add Task", message: "add", preferredStyle: .alert)
-        let ok = UIAlertAction(title: "Ok", style: .default) { action in
-            let textField = ac.textFields?[0]
-            self.saveTask(taskToDo: (textField?.text)!)
-            self.tableView.reloadData()
-        }
+        let vc = AddTaskVC()
+        present(vc, animated: true)
         
-        let cancel = UIAlertAction(title: "cancel", style: .default)
-        ac.addTextField()
-        ac.addAction(ok)
-        ac.addAction(cancel)
-
-        present(ac, animated: true)
+//        let ac = UIAlertController(title: "Add Task", message: "add", preferredStyle: .alert)
+//        let ok = UIAlertAction(title: "Ok", style: .default) { action in
+//            let textField = ac.textFields?[0]
+//            self.saveTask(taskToDo: (textField?.text)!)
+//            self.tableView.reloadData()
+//        }
+//
+//        let cancel = UIAlertAction(title: "cancel", style: .default)
+//        ac.addTextField()
+//        ac.addAction(ok)
+//        ac.addAction(cancel)
+//
+//        present(ac, animated: true)
     }
     
     func saveTask(taskToDo: String){
