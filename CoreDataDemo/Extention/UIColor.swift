@@ -27,6 +27,10 @@ extension UIColor{
     static var mainPrimary: UIColor{
         return UIColor(hex: 0x3688EA, alpha: 1)
     }
+    
+    static var mainViewColor: UIColor{
+        return UIColor(hex: 0xF3F4F8, alpha: 1)
+    }
 }
 
 

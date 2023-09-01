@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		CE7DB96E31C98D2DCAD95D6B /* Pods_CoreDataDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A2E1E1EF56BAB1F6FDC53C2 /* Pods_CoreDataDemo.framework */; };
-		F23035BF2A975A5D00113D3E /* Task2+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23035BD2A975A5D00113D3E /* Task2+CoreDataClass.swift */; };
-		F23035C02A975A5D00113D3E /* Task2+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23035BE2A975A5D00113D3E /* Task2+CoreDataProperties.swift */; };
+		F2A9C3762AA2137500B62C0C /* SaveEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A9C3742AA2137500B62C0C /* SaveEntity+CoreDataClass.swift */; };
+		F2A9C3772AA2137500B62C0C /* SaveEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A9C3752AA2137500B62C0C /* SaveEntity+CoreDataProperties.swift */; };
 		F2DA5B7C2A9F80D50009F6AC /* RegistrationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DA5B7B2A9F80D50009F6AC /* RegistrationVC.swift */; };
 		F2DA5B7E2A9F81240009F6AC /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DA5B7D2A9F81240009F6AC /* RegistrationView.swift */; };
 		F2DA5B802A9F851A0009F6AC /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DA5B7F2A9F851A0009F6AC /* UIColor.swift */; };
@@ -20,11 +20,6 @@
 		F2DA5B902A9FA4620009F6AC /* Users+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DA5B8E2A9FA4620009F6AC /* Users+CoreDataProperties.swift */; };
 		F2DA5B922AA061F20009F6AC /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DA5B912AA061F20009F6AC /* LoginView.swift */; };
 		F2DA5B942AA078BB0009F6AC /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DA5B932AA078BB0009F6AC /* TaskCell.swift */; };
-		F2DA5B972AA07BB60009F6AC /* CustomCoreDataStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DA5B962AA07BB60009F6AC /* CustomCoreDataStruct.swift */; };
-		F2DA5B9A2AA0803E0009F6AC /* UserSroty+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DA5B982AA0803E0009F6AC /* UserSroty+CoreDataClass.swift */; };
-		F2DA5B9B2AA0803E0009F6AC /* UserSroty+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DA5B992AA0803E0009F6AC /* UserSroty+CoreDataProperties.swift */; };
-		F2DA5B9D2AA080AF0009F6AC /* AddTaskVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DA5B9C2AA080AF0009F6AC /* AddTaskVC.swift */; };
-		F2DA5B9F2AA081280009F6AC /* AddTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DA5B9E2AA081280009F6AC /* AddTaskView.swift */; };
 		F2EBCE052A92496900D8C6ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2EBCE042A92496900D8C6ED /* AppDelegate.swift */; };
 		F2EBCE072A92496900D8C6ED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2EBCE062A92496900D8C6ED /* SceneDelegate.swift */; };
 		F2EBCE092A92496900D8C6ED /* TaskVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2EBCE082A92496900D8C6ED /* TaskVC.swift */; };
@@ -37,8 +32,8 @@
 		208CD1EE180707515BA593A7 /* Pods-CoreDataDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreDataDemo.release.xcconfig"; path = "Target Support Files/Pods-CoreDataDemo/Pods-CoreDataDemo.release.xcconfig"; sourceTree = "<group>"; };
 		52B44CD411AB30785334560E /* Pods-CoreDataDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreDataDemo.debug.xcconfig"; path = "Target Support Files/Pods-CoreDataDemo/Pods-CoreDataDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		8A2E1E1EF56BAB1F6FDC53C2 /* Pods_CoreDataDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoreDataDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F23035BD2A975A5D00113D3E /* Task2+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task2+CoreDataClass.swift"; sourceTree = "<group>"; };
-		F23035BE2A975A5D00113D3E /* Task2+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task2+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F2A9C3742AA2137500B62C0C /* SaveEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SaveEntity+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		F2A9C3752AA2137500B62C0C /* SaveEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SaveEntity+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		F2DA5B7B2A9F80D50009F6AC /* RegistrationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationVC.swift; sourceTree = "<group>"; };
 		F2DA5B7D2A9F81240009F6AC /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		F2DA5B7F2A9F851A0009F6AC /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
@@ -49,11 +44,6 @@
 		F2DA5B8E2A9FA4620009F6AC /* Users+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Users+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		F2DA5B912AA061F20009F6AC /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		F2DA5B932AA078BB0009F6AC /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
-		F2DA5B962AA07BB60009F6AC /* CustomCoreDataStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCoreDataStruct.swift; sourceTree = "<group>"; };
-		F2DA5B982AA0803E0009F6AC /* UserSroty+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserSroty+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		F2DA5B992AA0803E0009F6AC /* UserSroty+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserSroty+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
-		F2DA5B9C2AA080AF0009F6AC /* AddTaskVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskVC.swift; sourceTree = "<group>"; };
-		F2DA5B9E2AA081280009F6AC /* AddTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskView.swift; sourceTree = "<group>"; };
 		F2EBCE012A92496900D8C6ED /* CoreDataDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDataDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2EBCE042A92496900D8C6ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F2EBCE062A92496900D8C6ED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -99,7 +89,6 @@
 				F2DA5B7D2A9F81240009F6AC /* RegistrationView.swift */,
 				F2DA5B912AA061F20009F6AC /* LoginView.swift */,
 				F2DA5B932AA078BB0009F6AC /* TaskCell.swift */,
-				F2DA5B9E2AA081280009F6AC /* AddTaskView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -110,7 +99,6 @@
 				F2EBCE082A92496900D8C6ED /* TaskVC.swift */,
 				F2DA5B7B2A9F80D50009F6AC /* RegistrationVC.swift */,
 				F2DA5B862A9FA2D40009F6AC /* LoginVC.swift */,
-				F2DA5B9C2AA080AF0009F6AC /* AddTaskVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -140,12 +128,10 @@
 		F2DA5B882A9FA40E0009F6AC /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				F2DA5B982AA0803E0009F6AC /* UserSroty+CoreDataClass.swift */,
-				F2DA5B992AA0803E0009F6AC /* UserSroty+CoreDataProperties.swift */,
+				F2A9C3742AA2137500B62C0C /* SaveEntity+CoreDataClass.swift */,
+				F2A9C3752AA2137500B62C0C /* SaveEntity+CoreDataProperties.swift */,
 				F2DA5B8D2A9FA4620009F6AC /* Users+CoreDataClass.swift */,
 				F2DA5B8E2A9FA4620009F6AC /* Users+CoreDataProperties.swift */,
-				F23035BD2A975A5D00113D3E /* Task2+CoreDataClass.swift */,
-				F23035BE2A975A5D00113D3E /* Task2+CoreDataProperties.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -153,7 +139,6 @@
 		F2DA5B952AA07B810009F6AC /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				F2DA5B962AA07BB60009F6AC /* CustomCoreDataStruct.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -305,24 +290,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				F2EBCE092A92496900D8C6ED /* TaskVC.swift in Sources */,
-				F23035BF2A975A5D00113D3E /* Task2+CoreDataClass.swift in Sources */,
-				F2DA5B9B2AA0803E0009F6AC /* UserSroty+CoreDataProperties.swift in Sources */,
 				F2DA5B872A9FA2D40009F6AC /* LoginVC.swift in Sources */,
 				F2DA5B922AA061F20009F6AC /* LoginView.swift in Sources */,
 				F2EBCE0F2A92496900D8C6ED /* CoreDataDemo.xcdatamodeld in Sources */,
 				F2DA5B902A9FA4620009F6AC /* Users+CoreDataProperties.swift in Sources */,
-				F2DA5B9D2AA080AF0009F6AC /* AddTaskVC.swift in Sources */,
-				F2DA5B972AA07BB60009F6AC /* CustomCoreDataStruct.swift in Sources */,
+				F2A9C3772AA2137500B62C0C /* SaveEntity+CoreDataProperties.swift in Sources */,
 				F2DA5B8F2A9FA4620009F6AC /* Users+CoreDataClass.swift in Sources */,
 				F2EBCE052A92496900D8C6ED /* AppDelegate.swift in Sources */,
-				F23035C02A975A5D00113D3E /* Task2+CoreDataProperties.swift in Sources */,
-				F2DA5B9A2AA0803E0009F6AC /* UserSroty+CoreDataClass.swift in Sources */,
 				F2DA5B852A9F8B0E0009F6AC /* Resourse.swift in Sources */,
 				F2DA5B7C2A9F80D50009F6AC /* RegistrationVC.swift in Sources */,
-				F2DA5B9F2AA081280009F6AC /* AddTaskView.swift in Sources */,
 				F2EBCE072A92496900D8C6ED /* SceneDelegate.swift in Sources */,
 				F2DA5B942AA078BB0009F6AC /* TaskCell.swift in Sources */,
 				F2DA5B802A9F851A0009F6AC /* UIColor.swift in Sources */,
+				F2A9C3762AA2137500B62C0C /* SaveEntity+CoreDataClass.swift in Sources */,
 				F2DA5B832A9F8A700009F6AC /* UIFont.swift in Sources */,
 				F2DA5B7E2A9F81240009F6AC /* RegistrationView.swift in Sources */,
 			);

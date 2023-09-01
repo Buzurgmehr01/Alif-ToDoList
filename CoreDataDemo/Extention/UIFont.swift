@@ -16,4 +16,8 @@ extension UIFont{
     static var Helvetica13: UIFont{
         return UIFont(name: "Helvetica", size: 13) ?? UIFont()
     }
+    
+    static var Helvetica20: UIFont{
+        return UIFont(name: "Helvetica", size: 20) ?? UIFont()
+    }
 }

@@ -11,16 +11,16 @@ import SnapKit
 
 class TaskVC: UIViewController {
     
-    var todoListItem: [Task2] = []
+    var saveTask:[SaveEntity] = []
     let tableView = UITableView()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         let conteiner = AppDelegate.container.viewContext
-        let featchRequest: NSFetchRequest<Task2> = Task2.fetchRequest()
+        let featchRequest: NSFetchRequest<SaveEntity> = SaveEntity.fetchRequest()
         
         do{
-            todoListItem = try conteiner.fetch(featchRequest)
+            saveTask = try conteiner.fetch(featchRequest)
         }catch{
             print(error.localizedDescription)
         }
@@ -40,7 +40,7 @@ class TaskVC: UIViewController {
         view.backgroundColor = .white
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(TaskCell.self, forCellReuseIdentifier: "cell")
         tableView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(tableView)
         tableView.snp.makeConstraints {
@@ -49,57 +49,67 @@ class TaskVC: UIViewController {
             $0.bottom.equalToSuperview().inset(0)
         }
     }
-
+    
     @objc func addButtonTapped() {
-      
-        let vc = AddTaskVC()
-        present(vc, animated: true)
         
-//        let ac = UIAlertController(title: "Add Task", message: "add", preferredStyle: .alert)
-//        let ok = UIAlertAction(title: "Ok", style: .default) { action in
-//            let textField = ac.textFields?[0]
-//            self.saveTask(taskToDo: (textField?.text)!)
-//            self.tableView.reloadData()
-//        }
-//
-//        let cancel = UIAlertAction(title: "cancel", style: .default)
-//        ac.addTextField()
-//        ac.addAction(ok)
-//        ac.addAction(cancel)
-//
-//        present(ac, animated: true)
+        let ac = UIAlertController(title: "Add Task", message: nil, preferredStyle: .alert)
+        let ok = UIAlertAction(title: "Ok", style: .default) {  [weak ac] _ in
+            guard let textFields = ac?.textFields else {return}
+     
+            if let titleTF = textFields[0].text,
+               let desriptionTF = textFields[1].text {
+                self.saveTask(title: titleTF, description: desriptionTF)
+            }
+            self.tableView.reloadData()
+        }
+
+        let cancel = UIAlertAction(title: "cancel", style: .default)
+        ac.addTextField{ (textfield) in
+            textfield.placeholder = "Title"
+        }
+        ac.addTextField{ (textfield) in
+            textfield.placeholder = "Description"
+        }
+        ac.addAction(ok)
+        ac.addAction(cancel)
+
+        present(ac, animated: true)
     }
     
-    func saveTask(taskToDo: String){
+    func saveTask(title: String, description: String) {
+        let context = AppDelegate.container.viewContext
+        let user = SaveEntity(context: context)
+        user.title = title
+        user.taskDescription = description
         
-        let conteiner = AppDelegate.container.viewContext
-        let task = Task2(context: conteiner)
-        task.taskToDo = taskToDo
-        
-        do{
-            try conteiner.save()
-            todoListItem.append(task)
-        }catch{
-            print(error.localizedDescription)
+        do {
+            try context.save()
+            saveTask.append(user)
+        } catch {
+            print("Failed to save user: \(error.localizedDescription)")
         }
-        
     }
-
 }
 
 extension TaskVC: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return todoListItem.count
+        return saveTask.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+//        tableView.separatorStyle = .none
         
-        let task = todoListItem[indexPath.row]
-        cell.textLabel?.text = task.taskToDo
         
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TaskCell
+    
+        let task = saveTask[indexPath.row]
+        let taskTitle = task.title ?? ""
+        let taskDesk = task.taskDescription ?? ""
+
+        cell.configuration(title: taskTitle, desc: taskDesk)
         return cell
     }
     
@@ -109,15 +119,15 @@ extension TaskVC: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        
+
         if editingStyle == .delete{
-            let task = todoListItem[indexPath.row]
-            todoListItem.remove(at: indexPath.row)
-            
+            let task = saveTask[indexPath.row]
+            saveTask.remove(at: indexPath.row)
+
             tableView.deleteRows(at: [indexPath], with: .fade)
             let context = AppDelegate.container.viewContext
             context.delete(task)
-            
+
             do {
                 try context.save()
             } catch {
