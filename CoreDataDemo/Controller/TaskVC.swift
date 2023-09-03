@@ -11,19 +11,12 @@ import SnapKit
 
 class TaskVC: UIViewController {
     
-    var saveTask:[SaveEntity] = []
+    let coreDataManager = CoreDataManager()
     let tableView = UITableView()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let conteiner = AppDelegate.container.viewContext
-        let featchRequest: NSFetchRequest<SaveEntity> = SaveEntity.fetchRequest()
-        
-        do{
-            saveTask = try conteiner.fetch(featchRequest)
-        }catch{
-            print(error.localizedDescription)
-        }
+        coreDataManager.checkTask()
     }
     
     override func viewDidLoad() {
@@ -34,6 +27,7 @@ class TaskVC: UIViewController {
     
     func configure(){
         navigationItem.title = "ToDo List"
+        self.navigationController?.navigationBar.prefersLargeTitles = true
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
         navigationItem.rightBarButtonItem = addButton
         
@@ -58,9 +52,11 @@ class TaskVC: UIViewController {
      
             if let titleTF = textFields[0].text,
                let desriptionTF = textFields[1].text {
-                self.saveTask(title: titleTF, description: desriptionTF)
+                self.coreDataManager.saveTask(title: titleTF, description: desriptionTF)
             }
-            self.tableView.reloadData()
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         }
 
         let cancel = UIAlertAction(title: "cancel", style: .default)
@@ -75,41 +71,21 @@ class TaskVC: UIViewController {
 
         present(ac, animated: true)
     }
-    
-    func saveTask(title: String, description: String) {
-        let context = AppDelegate.container.viewContext
-        let user = SaveEntity(context: context)
-        user.title = title
-        user.taskDescription = description
-        
-        do {
-            try context.save()
-            saveTask.append(user)
-        } catch {
-            print("Failed to save user: \(error.localizedDescription)")
-        }
-    }
 }
 
 extension TaskVC: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return saveTask.count
+        return coreDataManager.saveTask.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-//        tableView.separatorStyle = .none
-        
-        
-        
+        tableView.separatorStyle = .none
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TaskCell
     
-        let task = saveTask[indexPath.row]
-        let taskTitle = task.title ?? ""
-        let taskDesk = task.taskDescription ?? ""
-
-        cell.configuration(title: taskTitle, desc: taskDesk)
+        let task = coreDataManager.saveTask[indexPath.row]
+        cell.configuration(task: task)
         return cell
     }
     
@@ -121,18 +97,11 @@ extension TaskVC: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
 
         if editingStyle == .delete{
-            let task = saveTask[indexPath.row]
-            saveTask.remove(at: indexPath.row)
+            let task = coreDataManager.saveTask[indexPath.row]
+            coreDataManager.saveTask.remove(at: indexPath.row)
 
             tableView.deleteRows(at: [indexPath], with: .fade)
-            let context = AppDelegate.container.viewContext
-            context.delete(task)
-
-            do {
-                try context.save()
-            } catch {
-                print(error.localizedDescription)
-            }
+            coreDataManager.deleteTask(task: task)
         }
     }
 }

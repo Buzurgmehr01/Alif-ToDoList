@@ -11,6 +11,7 @@ import SnapKit
 class RegistrationVC: UIViewController {
     
     let registrationView = RegistrationView()
+    let coreDataManager = CoreDataManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,13 +35,12 @@ class RegistrationVC: UIViewController {
             return
         }
         
-        let checkUser = Users.authUser(login: login, password: password)
+        let checkUser = coreDataManager.authUser(login: login, password: password)
         
         if checkUser {
             CoreDataAlert.showAlert(title: "Ошибка", message: "Такой пользователь уже существует!")
         }else{
-            
-            Users.createUser(login: login, password: password)
+            coreDataManager.createUser(login: login, password: password)
             
             let vc = TaskVC()
             let navController = UINavigationController(rootViewController: vc)

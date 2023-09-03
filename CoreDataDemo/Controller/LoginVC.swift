@@ -10,6 +10,8 @@ import UIKit
 class LoginVC: UIViewController {
     
     let loginview = LoginView()
+    let coreDataManager = CoreDataManager()
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +36,7 @@ class LoginVC: UIViewController {
             CoreDataAlert.showAlert(title: "Ошибка", message: "Заполните все поля!")
             return }
         
-        let authUser = Users.authUser(login: login, password: password)
+        let authUser = coreDataManager.authUser(login: login, password: password)
         
         if authUser{
             let vc = TaskVC()

@@ -51,8 +51,8 @@ class TaskCell: UITableViewCell {
         }
     }
     
-    func configuration(title: String, desc: String){
-        titleLabel.text = title
-        descriptionLabel.text = desc
+    func configuration(task: SaveEntity){
+        titleLabel.text = task.title
+        descriptionLabel.text = task.taskDescription
     }
 }

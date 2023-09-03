@@ -10,6 +10,7 @@
 		CE7DB96E31C98D2DCAD95D6B /* Pods_CoreDataDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A2E1E1EF56BAB1F6FDC53C2 /* Pods_CoreDataDemo.framework */; };
 		F2A9C3762AA2137500B62C0C /* SaveEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A9C3742AA2137500B62C0C /* SaveEntity+CoreDataClass.swift */; };
 		F2A9C3772AA2137500B62C0C /* SaveEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A9C3752AA2137500B62C0C /* SaveEntity+CoreDataProperties.swift */; };
+		F2A9C37A2AA4A33F00B62C0C /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A9C3792AA4A33F00B62C0C /* CoreDataManager.swift */; };
 		F2DA5B7C2A9F80D50009F6AC /* RegistrationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DA5B7B2A9F80D50009F6AC /* RegistrationVC.swift */; };
 		F2DA5B7E2A9F81240009F6AC /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DA5B7D2A9F81240009F6AC /* RegistrationView.swift */; };
 		F2DA5B802A9F851A0009F6AC /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DA5B7F2A9F851A0009F6AC /* UIColor.swift */; };
@@ -34,6 +35,7 @@
 		8A2E1E1EF56BAB1F6FDC53C2 /* Pods_CoreDataDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoreDataDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2A9C3742AA2137500B62C0C /* SaveEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SaveEntity+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		F2A9C3752AA2137500B62C0C /* SaveEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SaveEntity+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		F2A9C3792AA4A33F00B62C0C /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		F2DA5B7B2A9F80D50009F6AC /* RegistrationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationVC.swift; sourceTree = "<group>"; };
 		F2DA5B7D2A9F81240009F6AC /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		F2DA5B7F2A9F851A0009F6AC /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
@@ -81,6 +83,14 @@
 				208CD1EE180707515BA593A7 /* Pods-CoreDataDemo.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		F2A9C3782AA4A31A00B62C0C /* CoreDataManager */ = {
+			isa = PBXGroup;
+			children = (
+				F2A9C3792AA4A33F00B62C0C /* CoreDataManager.swift */,
+			);
+			path = CoreDataManager;
 			sourceTree = "<group>";
 		};
 		F2DA5B782A9F7EC10009F6AC /* View */ = {
@@ -165,6 +175,7 @@
 		F2EBCE032A92496900D8C6ED /* CoreDataDemo */ = {
 			isa = PBXGroup;
 			children = (
+				F2A9C3782AA4A31A00B62C0C /* CoreDataManager */,
 				F2DA5B812A9F85250009F6AC /* Extention */,
 				F2DA5B952AA07B810009F6AC /* Model */,
 				F2DA5B782A9F7EC10009F6AC /* View */,
@@ -292,6 +303,7 @@
 				F2EBCE092A92496900D8C6ED /* TaskVC.swift in Sources */,
 				F2DA5B872A9FA2D40009F6AC /* LoginVC.swift in Sources */,
 				F2DA5B922AA061F20009F6AC /* LoginView.swift in Sources */,
+				F2A9C37A2AA4A33F00B62C0C /* CoreDataManager.swift in Sources */,
 				F2EBCE0F2A92496900D8C6ED /* CoreDataDemo.xcdatamodeld in Sources */,
 				F2DA5B902A9FA4620009F6AC /* Users+CoreDataProperties.swift in Sources */,
 				F2A9C3772AA2137500B62C0C /* SaveEntity+CoreDataProperties.swift in Sources */,
