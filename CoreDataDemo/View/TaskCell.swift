@@ -25,11 +25,12 @@ class TaskCell: UITableViewCell {
     }
     
     func configuration(){
+        self.backgroundColor = .mainViewColor
         self.addSubview(taskView)
         taskView.addSubview(titleLabel)
         taskView.addSubview(descriptionLabel)
 
-        taskView.backgroundColor = .mainViewColor
+        taskView.backgroundColor = .white
         taskView.layer.cornerRadius = 12
         taskView.snp.makeConstraints {
             $0.edges.equalToSuperview().inset(20)
@@ -39,8 +40,10 @@ class TaskCell: UITableViewCell {
         }
         
         titleLabel.font = .Helvetica20
+        titleLabel.numberOfLines = 2
         titleLabel.snp.makeConstraints {
-            $0.top.left.equalToSuperview().offset(10)
+            $0.top.equalToSuperview().offset(10)
+            $0.left.right.equalToSuperview().inset(10)
         }
         
         descriptionLabel.font = .Helvetica13

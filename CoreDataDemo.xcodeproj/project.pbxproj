@@ -11,19 +11,20 @@
 		F2A9C3762AA2137500B62C0C /* SaveEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A9C3742AA2137500B62C0C /* SaveEntity+CoreDataClass.swift */; };
 		F2A9C3772AA2137500B62C0C /* SaveEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A9C3752AA2137500B62C0C /* SaveEntity+CoreDataProperties.swift */; };
 		F2A9C37A2AA4A33F00B62C0C /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A9C3792AA4A33F00B62C0C /* CoreDataManager.swift */; };
-		F2DA5B7C2A9F80D50009F6AC /* RegistrationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DA5B7B2A9F80D50009F6AC /* RegistrationVC.swift */; };
+		F2A9C37C2AA604EE00B62C0C /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A9C37B2AA604EE00B62C0C /* EditViewController.swift */; };
+		F2DA5B7C2A9F80D50009F6AC /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DA5B7B2A9F80D50009F6AC /* RegistrationViewController.swift */; };
 		F2DA5B7E2A9F81240009F6AC /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DA5B7D2A9F81240009F6AC /* RegistrationView.swift */; };
 		F2DA5B802A9F851A0009F6AC /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DA5B7F2A9F851A0009F6AC /* UIColor.swift */; };
 		F2DA5B832A9F8A700009F6AC /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DA5B822A9F8A700009F6AC /* UIFont.swift */; };
 		F2DA5B852A9F8B0E0009F6AC /* Resourse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DA5B842A9F8B0E0009F6AC /* Resourse.swift */; };
-		F2DA5B872A9FA2D40009F6AC /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DA5B862A9FA2D40009F6AC /* LoginVC.swift */; };
+		F2DA5B872A9FA2D40009F6AC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DA5B862A9FA2D40009F6AC /* LoginViewController.swift */; };
 		F2DA5B8F2A9FA4620009F6AC /* Users+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DA5B8D2A9FA4620009F6AC /* Users+CoreDataClass.swift */; };
 		F2DA5B902A9FA4620009F6AC /* Users+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DA5B8E2A9FA4620009F6AC /* Users+CoreDataProperties.swift */; };
 		F2DA5B922AA061F20009F6AC /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DA5B912AA061F20009F6AC /* LoginView.swift */; };
 		F2DA5B942AA078BB0009F6AC /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DA5B932AA078BB0009F6AC /* TaskCell.swift */; };
 		F2EBCE052A92496900D8C6ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2EBCE042A92496900D8C6ED /* AppDelegate.swift */; };
 		F2EBCE072A92496900D8C6ED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2EBCE062A92496900D8C6ED /* SceneDelegate.swift */; };
-		F2EBCE092A92496900D8C6ED /* TaskVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2EBCE082A92496900D8C6ED /* TaskVC.swift */; };
+		F2EBCE092A92496900D8C6ED /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2EBCE082A92496900D8C6ED /* TaskViewController.swift */; };
 		F2EBCE0F2A92496900D8C6ED /* CoreDataDemo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F2EBCE0D2A92496900D8C6ED /* CoreDataDemo.xcdatamodeld */; };
 		F2EBCE112A92496B00D8C6ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2EBCE102A92496B00D8C6ED /* Assets.xcassets */; };
 		F2EBCE142A92496B00D8C6ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2EBCE122A92496B00D8C6ED /* LaunchScreen.storyboard */; };
@@ -36,12 +37,13 @@
 		F2A9C3742AA2137500B62C0C /* SaveEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SaveEntity+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		F2A9C3752AA2137500B62C0C /* SaveEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SaveEntity+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		F2A9C3792AA4A33F00B62C0C /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
-		F2DA5B7B2A9F80D50009F6AC /* RegistrationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationVC.swift; sourceTree = "<group>"; };
+		F2A9C37B2AA604EE00B62C0C /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
+		F2DA5B7B2A9F80D50009F6AC /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		F2DA5B7D2A9F81240009F6AC /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		F2DA5B7F2A9F851A0009F6AC /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		F2DA5B822A9F8A700009F6AC /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 		F2DA5B842A9F8B0E0009F6AC /* Resourse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resourse.swift; sourceTree = "<group>"; };
-		F2DA5B862A9FA2D40009F6AC /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		F2DA5B862A9FA2D40009F6AC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F2DA5B8D2A9FA4620009F6AC /* Users+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Users+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		F2DA5B8E2A9FA4620009F6AC /* Users+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Users+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		F2DA5B912AA061F20009F6AC /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -49,7 +51,7 @@
 		F2EBCE012A92496900D8C6ED /* CoreDataDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDataDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2EBCE042A92496900D8C6ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F2EBCE062A92496900D8C6ED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F2EBCE082A92496900D8C6ED /* TaskVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskVC.swift; sourceTree = "<group>"; };
+		F2EBCE082A92496900D8C6ED /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
 		F2EBCE0E2A92496900D8C6ED /* CoreDataDemo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataDemo.xcdatamodel; sourceTree = "<group>"; };
 		F2EBCE102A92496B00D8C6ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F2EBCE132A92496B00D8C6ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -106,9 +108,10 @@
 		F2DA5B792A9F7ED60009F6AC /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				F2EBCE082A92496900D8C6ED /* TaskVC.swift */,
-				F2DA5B7B2A9F80D50009F6AC /* RegistrationVC.swift */,
-				F2DA5B862A9FA2D40009F6AC /* LoginVC.swift */,
+				F2EBCE082A92496900D8C6ED /* TaskViewController.swift */,
+				F2DA5B7B2A9F80D50009F6AC /* RegistrationViewController.swift */,
+				F2DA5B862A9FA2D40009F6AC /* LoginViewController.swift */,
+				F2A9C37B2AA604EE00B62C0C /* EditViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -300,17 +303,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F2EBCE092A92496900D8C6ED /* TaskVC.swift in Sources */,
-				F2DA5B872A9FA2D40009F6AC /* LoginVC.swift in Sources */,
+				F2EBCE092A92496900D8C6ED /* TaskViewController.swift in Sources */,
+				F2DA5B872A9FA2D40009F6AC /* LoginViewController.swift in Sources */,
 				F2DA5B922AA061F20009F6AC /* LoginView.swift in Sources */,
 				F2A9C37A2AA4A33F00B62C0C /* CoreDataManager.swift in Sources */,
 				F2EBCE0F2A92496900D8C6ED /* CoreDataDemo.xcdatamodeld in Sources */,
 				F2DA5B902A9FA4620009F6AC /* Users+CoreDataProperties.swift in Sources */,
 				F2A9C3772AA2137500B62C0C /* SaveEntity+CoreDataProperties.swift in Sources */,
 				F2DA5B8F2A9FA4620009F6AC /* Users+CoreDataClass.swift in Sources */,
+				F2A9C37C2AA604EE00B62C0C /* EditViewController.swift in Sources */,
 				F2EBCE052A92496900D8C6ED /* AppDelegate.swift in Sources */,
 				F2DA5B852A9F8B0E0009F6AC /* Resourse.swift in Sources */,
-				F2DA5B7C2A9F80D50009F6AC /* RegistrationVC.swift in Sources */,
+				F2DA5B7C2A9F80D50009F6AC /* RegistrationViewController.swift in Sources */,
 				F2EBCE072A92496900D8C6ED /* SceneDelegate.swift in Sources */,
 				F2DA5B942AA078BB0009F6AC /* TaskCell.swift in Sources */,
 				F2DA5B802A9F851A0009F6AC /* UIColor.swift in Sources */,
@@ -463,7 +467,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -495,7 +499,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -9,7 +9,7 @@ import UIKit
 import CoreData
 import SnapKit
 
-class TaskVC: UIViewController {
+class TaskViewController: UIViewController {
     
     let coreDataManager = CoreDataManager()
     let tableView = UITableView()
@@ -17,6 +17,9 @@ class TaskVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         coreDataManager.checkTask()
+//        DispatchQueue.main.async {
+//            self.tableView.reloadData()
+//        }
     }
     
     override func viewDidLoad() {
@@ -26,12 +29,13 @@ class TaskVC: UIViewController {
     }
     
     func configure(){
-        navigationItem.title = "ToDo List"
+        navigationItem.title = "Задачи"
         self.navigationController?.navigationBar.prefersLargeTitles = true
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
         navigationItem.rightBarButtonItem = addButton
         
-        view.backgroundColor = .white
+        view.backgroundColor = .mainViewColor
+        tableView.backgroundColor = .mainViewColor
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(TaskCell.self, forCellReuseIdentifier: "cell")
@@ -50,8 +54,8 @@ class TaskVC: UIViewController {
         let ok = UIAlertAction(title: "Ok", style: .default) {  [weak ac] _ in
             guard let textFields = ac?.textFields else {return}
      
-            if let titleTF = textFields[0].text,
-               let desriptionTF = textFields[1].text {
+            if let titleTF = textFields[0].text, !titleTF.isEmpty,
+                let desriptionTF = textFields[1].text, !desriptionTF.isEmpty {
                 self.coreDataManager.saveTask(title: titleTF, description: desriptionTF)
             }
             DispatchQueue.main.async {
@@ -64,7 +68,7 @@ class TaskVC: UIViewController {
             textfield.placeholder = "Title"
         }
         ac.addTextField{ (textfield) in
-            textfield.placeholder = "Description"
+            textfield.placeholder = "Исполнитель"
         }
         ac.addAction(ok)
         ac.addAction(cancel)
@@ -73,7 +77,7 @@ class TaskVC: UIViewController {
     }
 }
 
-extension TaskVC: UITableViewDelegate, UITableViewDataSource{
+extension TaskViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return coreDataManager.saveTask.count
@@ -87,6 +91,12 @@ extension TaskVC: UITableViewDelegate, UITableViewDataSource{
         let task = coreDataManager.saveTask[indexPath.row]
         cell.configuration(task: task)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let vc = EditViewController(task: coreDataManager.saveTask[indexPath.row])
+        navigationController?.pushViewController(vc, animated: true)
     }
     
   

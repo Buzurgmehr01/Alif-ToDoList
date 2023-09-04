@@ -11,8 +11,9 @@ import UIKit
 
 class CoreDataManager {
     
-    static let share = CoreDataManager()
-    var saveTask:[SaveEntity] = []
+    static let shared = CoreDataManager()
+    public var saveTask:[SaveEntity] = []
+        
     init(){}
     
     lazy var persistentContainer: NSPersistentContainer = {
@@ -82,6 +83,21 @@ class CoreDataManager {
             saveTask = try conteiner.fetch(featchRequest)
         }catch{
             print(error.localizedDescription)
+        }
+    }
+    
+    func changeTask(title: String, exeutor: String, newTitleName: String){
+        let fetchRequest = SaveEntity.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "title == %@", title)
+        
+        do{
+            let task = try persistentContainer.viewContext.fetch(fetchRequest).first
+            task?.title = newTitleName
+            task?.taskDescription = exeutor
+            saveCotext()
+        }catch{
+            print(error)
+
         }
     }
     

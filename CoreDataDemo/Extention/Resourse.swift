@@ -56,3 +56,12 @@ class CoreDataAlert{
     }
     
 }
+
+class InfoLabel: UILabel{
+    func infoLabel(text: String) -> UILabel{
+        let label = UILabel()
+        label.text = text
+        label.font = .Helvetica20
+        return label
+    }
+}

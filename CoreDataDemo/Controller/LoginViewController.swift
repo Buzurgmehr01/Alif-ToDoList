@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LoginVC: UIViewController {
+class LoginViewController: UIViewController {
     
     let loginview = LoginView()
     let coreDataManager = CoreDataManager()
@@ -39,7 +39,7 @@ class LoginVC: UIViewController {
         let authUser = coreDataManager.authUser(login: login, password: password)
         
         if authUser{
-            let vc = TaskVC()
+            let vc = TaskViewController()
             let navController = UINavigationController(rootViewController: vc)
             navController.modalPresentationStyle = .fullScreen
             present(navController, animated: true, completion: nil)

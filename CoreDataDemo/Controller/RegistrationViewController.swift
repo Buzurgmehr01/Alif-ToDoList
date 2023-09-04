@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class RegistrationVC: UIViewController {
+class RegistrationViewController: UIViewController {
     
     let registrationView = RegistrationView()
     let coreDataManager = CoreDataManager()
@@ -42,7 +42,7 @@ class RegistrationVC: UIViewController {
         }else{
             coreDataManager.createUser(login: login, password: password)
             
-            let vc = TaskVC()
+            let vc = TaskViewController()
             let navController = UINavigationController(rootViewController: vc)
             navController.modalPresentationStyle = .fullScreen
             present(navController, animated: true, completion: nil)
@@ -54,7 +54,7 @@ class RegistrationVC: UIViewController {
     }
 
     func loginButtonTap(){
-        let vc = LoginVC()
+        let vc = LoginViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
 }

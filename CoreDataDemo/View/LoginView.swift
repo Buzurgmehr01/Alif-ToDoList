@@ -16,7 +16,7 @@ class LoginView: UIView {
         return UITextField().setUpTextField(placeholder: " login", isSecure: false)
     }()
     let passwordTF: UITextField = {
-        return UITextField().setUpTextField(placeholder: " password", isSecure: false)
+        return UITextField().setUpTextField(placeholder: " password", isSecure: true)
     }()
     
     let signUpButton: UIButton = {
