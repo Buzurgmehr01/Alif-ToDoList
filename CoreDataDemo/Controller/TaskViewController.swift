@@ -11,20 +11,38 @@ import SnapKit
 
 class TaskViewController: UIViewController {
     
+    
     let coreDataManager = CoreDataManager()
     let tableView = UITableView()
+    var items:[SaveEntity] = []
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        coreDataManager.checkTask()
-//        DispatchQueue.main.async {
-//            self.tableView.reloadData()
-//        }
-    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        items = coreDataManager.getTasks()
         configure()
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        //        items = coreDataManager.getTasks()
+        
+        NotificationCenter.default.addObserver(forName: Notification.Name("Test"), object: nil, queue: nil) { [weak self] notific in
+            print(notific)
+            
+            self?.items = self?.coreDataManager.getTasks() ?? []
+            
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+            }
+            //
+        }
+        //
+        //        coreDataManager.checkTask()
+        tableView.reloadData()
         
     }
     
@@ -53,16 +71,24 @@ class TaskViewController: UIViewController {
         let ac = UIAlertController(title: "Add Task", message: nil, preferredStyle: .alert)
         let ok = UIAlertAction(title: "Ok", style: .default) {  [weak ac] _ in
             guard let textFields = ac?.textFields else {return}
-     
+            
             if let titleTF = textFields[0].text, !titleTF.isEmpty,
-                let desriptionTF = textFields[1].text, !desriptionTF.isEmpty {
-                self.coreDataManager.saveTask(title: titleTF, description: desriptionTF)
-            }
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
+               let desriptionTF = textFields[1].text, !desriptionTF.isEmpty {
+                
+                self.coreDataManager.saveTask(title: titleTF, description: desriptionTF) { [weak self] tasks in
+                    if let tasks = tasks {
+                        self?.items = tasks
+                        DispatchQueue.main.async {
+                            self?.tableView.reloadData()
+                        }
+                    } else {
+                        print("Error")
+                        
+                    }
+                }
             }
         }
-
+        
         let cancel = UIAlertAction(title: "cancel", style: .default)
         ac.addTextField{ (textfield) in
             textfield.placeholder = "Title"
@@ -72,7 +98,7 @@ class TaskViewController: UIViewController {
         }
         ac.addAction(ok)
         ac.addAction(cancel)
-
+        
         present(ac, animated: true)
     }
 }
@@ -80,36 +106,36 @@ class TaskViewController: UIViewController {
 extension TaskViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return coreDataManager.saveTask.count
+        return items.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         tableView.separatorStyle = .none
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TaskCell
-    
-        let task = coreDataManager.saveTask[indexPath.row]
+        
+        let task = items[indexPath.row]
         cell.configuration(task: task)
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let vc = EditViewController(task: coreDataManager.saveTask[indexPath.row])
+        let vc = EditViewController(task: items[indexPath.row])
         navigationController?.pushViewController(vc, animated: true)
     }
     
-  
+    
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return .delete
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-
+        
         if editingStyle == .delete{
-            let task = coreDataManager.saveTask[indexPath.row]
-            coreDataManager.saveTask.remove(at: indexPath.row)
-
+            let task = items[indexPath.row]
+            items.remove(at: indexPath.row)
+            
             tableView.deleteRows(at: [indexPath], with: .fade)
             coreDataManager.deleteTask(task: task)
         }

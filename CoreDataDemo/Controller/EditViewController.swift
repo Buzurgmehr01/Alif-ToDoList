@@ -95,6 +95,7 @@ class EditViewController: UIViewController {
     
     @objc func popVC() {
         self.navigationController?.popViewController(animated: true)
+//        print(coreDataManager.saveTasks)
     }
     
     @objc func saveChanges() {
@@ -108,7 +109,13 @@ class EditViewController: UIViewController {
         let executor = executorTF.text ?? ""
         
         coreDataManager.changeTask(title: titleName, exeutor: executor, newTitleName: newTitleName)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4){
+            NotificationCenter.default.post(name: Notification.Name("Test"), object: nil)
+        }
         popVC()
     }
     
 }
+
+//масив берн мекнем
+

@@ -9,10 +9,16 @@ import Foundation
 import CoreData
 import UIKit
 
+//protocol CoreDataProtocol: AnyObject{
+//    func coreDataUpdate()
+//}
+
 class CoreDataManager {
     
     static let shared = CoreDataManager()
-    public var saveTask:[SaveEntity] = []
+//    public var saveTasks:[SaveEntity] = []
+//    weak var dataProtocol: CoreDataProtocol?
+
         
     init(){}
     
@@ -61,29 +67,32 @@ class CoreDataManager {
         }
     }
     
-    func saveTask(title: String, description: String) {
+    func saveTask(title: String, description: String, completion: @escaping ([SaveEntity]?) -> Void) {
         let context = persistentContainer.viewContext
         let task = SaveEntity(context: context)
         task.title = title
         task.taskDescription = description
-        
         do {
             try context.save()
-            saveTask.append(task)
+            let task = getTasks()
+            completion(task)
         } catch {
             print("Failed to save user: \(error.localizedDescription)")
         }
     }
     
-    func checkTask(){
+    func getTasks() -> [SaveEntity]{
         let conteiner = persistentContainer.viewContext
         let featchRequest: NSFetchRequest<SaveEntity> = SaveEntity.fetchRequest()
         
         do{
-            saveTask = try conteiner.fetch(featchRequest)
+            let tasks = try conteiner.fetch(featchRequest)
+            return tasks
+            
         }catch{
             print(error.localizedDescription)
         }
+        return []
     }
     
     func changeTask(title: String, exeutor: String, newTitleName: String){
@@ -95,9 +104,9 @@ class CoreDataManager {
             task?.title = newTitleName
             task?.taskDescription = exeutor
             saveCotext()
+                        
         }catch{
             print(error)
-
         }
     }
     
