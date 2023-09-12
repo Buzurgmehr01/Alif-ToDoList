@@ -9,13 +9,15 @@ import UIKit
 import CoreData
 import SnapKit
 
-class TaskViewController: UIViewController {
+protocol TaskUpdateDelegate: AnyObject{
+    func didUpdateTasks()
+}
+
+class TaskViewController: UIViewController, TaskUpdateDelegate {
     
-    
-    let coreDataManager = CoreDataManager()
+    let coreDataManager = CoreDataManager.shared
     let tableView = UITableView()
     var items:[SaveEntity] = []
-    
     
     
     override func viewDidLoad() {
@@ -25,25 +27,11 @@ class TaskViewController: UIViewController {
     }
     
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        //        items = coreDataManager.getTasks()
-        
-        NotificationCenter.default.addObserver(forName: Notification.Name("Test"), object: nil, queue: nil) { [weak self] notific in
-            print(notific)
-            
-            self?.items = self?.coreDataManager.getTasks() ?? []
-            
-            DispatchQueue.main.async {
-                self?.tableView.reloadData()
-            }
-            //
+    func didUpdateTasks() {
+        items = coreDataManager.getTasks()
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
         }
-        //
-        //        coreDataManager.checkTask()
-        tableView.reloadData()
-        
     }
     
     func configure(){
@@ -62,7 +50,7 @@ class TaskViewController: UIViewController {
         tableView.snp.makeConstraints {
             $0.top.equalToSuperview().offset(5)
             $0.left.right.equalToSuperview().inset(5)
-            $0.bottom.equalToSuperview().inset(0)
+            $0.bottom.equalToSuperview()
         }
     }
     
@@ -122,6 +110,7 @@ extension TaskViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let vc = EditViewController(task: items[indexPath.row])
+        vc.taskUpdateDelegate = self
         navigationController?.pushViewController(vc, animated: true)
     }
     

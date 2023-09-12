@@ -11,8 +11,9 @@ import SnapKit
 class EditViewController: UIViewController {
     
     
-    private let coreDataManager = CoreDataManager()
+    private let coreDataManager = CoreDataManager.shared
     let task: SaveEntity
+    weak var taskUpdateDelegate: TaskUpdateDelegate?
     
     init(task: SaveEntity) {
         self.task = task
@@ -47,6 +48,7 @@ class EditViewController: UIViewController {
         super.viewDidLoad()
         configure()
         setUpNavBar()
+        
     }
     
     func setUpNavBar(){
@@ -95,27 +97,21 @@ class EditViewController: UIViewController {
     
     @objc func popVC() {
         self.navigationController?.popViewController(animated: true)
-//        print(coreDataManager.saveTasks)
     }
     
     @objc func saveChanges() {
-        
         guard let newTitleName = titleTF.text, !newTitleName.isEmpty else{
-            CoreDataAlert.showAlert(title: "Pfgjkybnt", message: "")
+            DispatchQueue.main.async {
+                CoreDataAlert.showAlert(navController: self.navigationController, title: "Pfgjkybnt", message: "")
+            }
             return
         }
         
         let titleName = task.title ?? ""
         let executor = executorTF.text ?? ""
-        
+
         coreDataManager.changeTask(title: titleName, exeutor: executor, newTitleName: newTitleName)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 4){
-            NotificationCenter.default.post(name: Notification.Name("Test"), object: nil)
-        }
+        taskUpdateDelegate?.didUpdateTasks()
         popVC()
     }
-    
 }
-
-//масив берн мекнем
-

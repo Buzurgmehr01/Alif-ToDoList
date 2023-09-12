@@ -10,7 +10,7 @@ import UIKit
 class LoginViewController: UIViewController {
     
     let loginview = LoginView()
-    let coreDataManager = CoreDataManager()
+    let coreDataManager = CoreDataManager.shared
 
 
     override func viewDidLoad() {
@@ -33,7 +33,7 @@ class LoginViewController: UIViewController {
         guard let login = loginview.loginTF.text, !login.isEmpty,
               let password = loginview.passwordTF.text, !password.isEmpty
         else {
-            CoreDataAlert.showAlert(title: "Ошибка", message: "Заполните все поля!")
+            CoreDataAlert.showAlert(navController: self.navigationController, title: "Ошибка", message: "Заполните все поля!")
             return }
         
         let authUser = coreDataManager.authUser(login: login, password: password)
@@ -46,7 +46,7 @@ class LoginViewController: UIViewController {
             
             print("User login successfully.")
         }else{
-            CoreDataAlert.showAlert(title: "Ошибка", message: "Неправельны логин или пароль!")
+            CoreDataAlert.showAlert(navController: self.navigationController, title: "Ошибка", message: "Неправельны логин или пароль!")
         }
     }
 

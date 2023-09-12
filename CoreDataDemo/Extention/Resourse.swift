@@ -43,16 +43,16 @@ class MainButton: UIButton{
 
 class CoreDataAlert{
     
-    class func showAlert(title: String, message: String, buttonText: String = "") {
+    class func showAlert(navController: UINavigationController?, title: String, message: String, buttonText: String = "") {
         
-        guard let topViewController = UIApplication.shared.keyWindow?.rootViewController else {
-            return
-        }
+//        guard let topViewController = UIApplication.shared.keyWindow?.rootViewController?.navigationController else {
+//            return
+//        }
         
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: buttonText.isEmpty ? "OK" : buttonText, style: .default))
         
-        topViewController.present(alert, animated: true)
+        navController?.present(alert, animated: true)
     }
     
 }

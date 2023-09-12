@@ -15,7 +15,7 @@ import UIKit
 
 class CoreDataManager {
     
-    static let shared = CoreDataManager()
+    public static let shared = CoreDataManager()
 //    public var saveTasks:[SaveEntity] = []
 //    weak var dataProtocol: CoreDataProtocol?
 

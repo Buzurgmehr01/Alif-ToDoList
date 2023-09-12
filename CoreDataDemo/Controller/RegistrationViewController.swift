@@ -11,7 +11,7 @@ import SnapKit
 class RegistrationViewController: UIViewController {
     
     let registrationView = RegistrationView()
-    let coreDataManager = CoreDataManager()
+    let coreDataManager = CoreDataManager.shared
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,14 +31,14 @@ class RegistrationViewController: UIViewController {
     func signUpButtonTap() {
         guard let login = registrationView.loginTF.text, !login.isEmpty,
               let password = registrationView.passwordTF.text, !password.isEmpty else {
-            CoreDataAlert.showAlert(title: "Ошибка", message: "Заполните поля")
+            CoreDataAlert.showAlert(navController: self.navigationController, title: "Ошибка", message: "Заполните поля")
             return
         }
         
         let checkUser = coreDataManager.authUser(login: login, password: password)
         
         if checkUser {
-            CoreDataAlert.showAlert(title: "Ошибка", message: "Такой пользователь уже существует!")
+            CoreDataAlert.showAlert(navController: self.navigationController, title: "Ошибка", message: "Такой пользователь уже существует!")
         }else{
             coreDataManager.createUser(login: login, password: password)
             
