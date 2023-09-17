@@ -19,9 +19,8 @@ extension UITextField{
 }
 
 
-class MainButton: UIButton{
-    
-    func setUpMainButton(title: String, selector: Selector)-> UIButton{
+class MainButton: UIButton {
+    func setUp(title: String, selector: Selector) -> UIButton {
         let button = UIButton()
         button.backgroundColor = .mainPrimary
         button.setTitle(title, for: .normal)
@@ -29,8 +28,10 @@ class MainButton: UIButton{
         button.addTarget(self, action: selector, for: .touchUpInside)
         return button
     }
-    
-    func setUpLoginButton(title: String, selector: Selector)-> UIButton{
+}
+
+class LoginButton: UIButton {
+    func setUp(title: String, selector: Selector) -> UIButton {
         let button = UIButton()
         button.backgroundColor = .white
         button.setTitle(title, for: .normal)
@@ -44,11 +45,6 @@ class MainButton: UIButton{
 class CoreDataAlert{
     
     class func showAlert(navController: UINavigationController?, title: String, message: String, buttonText: String = "") {
-        
-//        guard let topViewController = UIApplication.shared.keyWindow?.rootViewController?.navigationController else {
-//            return
-//        }
-        
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: buttonText.isEmpty ? "OK" : buttonText, style: .default))
         

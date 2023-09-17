@@ -18,17 +18,19 @@ class TaskViewController: UIViewController, TaskUpdateDelegate {
     let coreDataManager = CoreDataManager.shared
     let tableView = UITableView()
     var items:[SaveEntity] = []
-    
+    lazy var taskManager: Taskmanager = {
+        Taskmanager.init(coreDataManeger: coreDataManager)
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        items = coreDataManager.getTasks()
+        items = taskManager.getTasks()
         configure()
     }
     
     
     func didUpdateTasks() {
-        items = coreDataManager.getTasks()
+        items = taskManager.getTasks()
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
@@ -48,46 +50,49 @@ class TaskViewController: UIViewController, TaskUpdateDelegate {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(tableView)
         tableView.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(5)
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             $0.left.right.equalToSuperview().inset(5)
-            $0.bottom.equalToSuperview()
+            $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
         }
     }
     
     @objc func addButtonTapped() {
         
-        let ac = UIAlertController(title: "Add Task", message: nil, preferredStyle: .alert)
-        let ok = UIAlertAction(title: "Ok", style: .default) {  [weak ac] _ in
-            guard let textFields = ac?.textFields else {return}
+        let alertControler = UIAlertController(title: "Add Task", message: nil, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Ok", style: .default) {  [weak alertControler] _ in
+            guard let textFields = alertControler?.textFields, textFields.count >= 2 else {return}
             
             if let titleTF = textFields[0].text, !titleTF.isEmpty,
                let desriptionTF = textFields[1].text, !desriptionTF.isEmpty {
                 
-                self.coreDataManager.saveTask(title: titleTF, description: desriptionTF) { [weak self] tasks in
-                    if let tasks = tasks {
-                        self?.items = tasks
-                        DispatchQueue.main.async {
-                            self?.tableView.reloadData()
+                self.taskManager.saveTask(title: titleTF, description: desriptionTF) { [weak self] tasks in
+                        if let tasks = tasks {
+                            self?.items = tasks
+                            DispatchQueue.main.async {
+                                let indexPath = IndexPath(row: tasks.count - 1, section: 0)
+                                self?.tableView.beginUpdates()
+                                self?.tableView.insertRows(at: [indexPath], with: .automatic)
+                                self?.tableView.endUpdates()
+                            }
+                        } else {
+                            print("Error")
+                            
                         }
-                    } else {
-                        print("Error")
-                        
-                    }
                 }
             }
         }
         
         let cancel = UIAlertAction(title: "cancel", style: .default)
-        ac.addTextField{ (textfield) in
+        alertControler.addTextField{ (textfield) in
             textfield.placeholder = "Title"
         }
-        ac.addTextField{ (textfield) in
+        alertControler.addTextField{ (textfield) in
             textfield.placeholder = "Исполнитель"
         }
-        ac.addAction(ok)
-        ac.addAction(cancel)
+        alertControler.addAction(okAction)
+        alertControler.addAction(cancel)
         
-        present(ac, animated: true)
+        present(alertControler, animated: true)
     }
 }
 
@@ -126,7 +131,6 @@ extension TaskViewController: UITableViewDelegate, UITableViewDataSource{
             items.remove(at: indexPath.row)
             
             tableView.deleteRows(at: [indexPath], with: .fade)
-            coreDataManager.deleteTask(task: task)
-        }
+            taskManager.deleteTask(task: task)        }
     }
 }

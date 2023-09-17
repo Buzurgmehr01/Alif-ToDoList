@@ -11,8 +11,11 @@ import SnapKit
 class RegistrationViewController: UIViewController {
     
     let registrationView = RegistrationView()
-    let coreDataManager = CoreDataManager.shared
-
+    let coreDataManager = CoreDataManager()
+    lazy var userManager: UserManager = {
+        UserManager(coreDataManager: coreDataManager)
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configuration()
@@ -35,22 +38,18 @@ class RegistrationViewController: UIViewController {
             return
         }
         
-        let checkUser = coreDataManager.authUser(login: login, password: password)
+        let checkUser = userManager.authUser(login: login, password: password)
         
         if checkUser {
             CoreDataAlert.showAlert(navController: self.navigationController, title: "Ошибка", message: "Такой пользователь уже существует!")
         }else{
-            coreDataManager.createUser(login: login, password: password)
+            userManager.createUser(login: login, password: password)
             
             let vc = TaskViewController()
             let navController = UINavigationController(rootViewController: vc)
             navController.modalPresentationStyle = .fullScreen
             present(navController, animated: true, completion: nil)
-            
-            print("User registered successfully.")
         }
-        
-        
     }
 
     func loginButtonTap(){

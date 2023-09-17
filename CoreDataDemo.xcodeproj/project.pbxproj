@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		CE7DB96E31C98D2DCAD95D6B /* Pods_CoreDataDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A2E1E1EF56BAB1F6FDC53C2 /* Pods_CoreDataDemo.framework */; };
+		F20925D42AB771D300BE8B27 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20925D32AB771D300BE8B27 /* UserManager.swift */; };
+		F20925D62AB7773E00BE8B27 /* TaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20925D52AB7773D00BE8B27 /* TaskManager.swift */; };
 		F2A9C3762AA2137500B62C0C /* SaveEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A9C3742AA2137500B62C0C /* SaveEntity+CoreDataClass.swift */; };
 		F2A9C3772AA2137500B62C0C /* SaveEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A9C3752AA2137500B62C0C /* SaveEntity+CoreDataProperties.swift */; };
 		F2A9C37A2AA4A33F00B62C0C /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A9C3792AA4A33F00B62C0C /* CoreDataManager.swift */; };
@@ -34,6 +36,8 @@
 		208CD1EE180707515BA593A7 /* Pods-CoreDataDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreDataDemo.release.xcconfig"; path = "Target Support Files/Pods-CoreDataDemo/Pods-CoreDataDemo.release.xcconfig"; sourceTree = "<group>"; };
 		52B44CD411AB30785334560E /* Pods-CoreDataDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreDataDemo.debug.xcconfig"; path = "Target Support Files/Pods-CoreDataDemo/Pods-CoreDataDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		8A2E1E1EF56BAB1F6FDC53C2 /* Pods_CoreDataDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoreDataDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F20925D32AB771D300BE8B27 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		F20925D52AB7773D00BE8B27 /* TaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskManager.swift; sourceTree = "<group>"; };
 		F2A9C3742AA2137500B62C0C /* SaveEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SaveEntity+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		F2A9C3752AA2137500B62C0C /* SaveEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SaveEntity+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		F2A9C3792AA4A33F00B62C0C /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
@@ -91,6 +95,8 @@
 			isa = PBXGroup;
 			children = (
 				F2A9C3792AA4A33F00B62C0C /* CoreDataManager.swift */,
+				F20925D32AB771D300BE8B27 /* UserManager.swift */,
+				F20925D52AB7773D00BE8B27 /* TaskManager.swift */,
 			);
 			path = CoreDataManager;
 			sourceTree = "<group>";
@@ -305,6 +311,8 @@
 			files = (
 				F2EBCE092A92496900D8C6ED /* TaskViewController.swift in Sources */,
 				F2DA5B872A9FA2D40009F6AC /* LoginViewController.swift in Sources */,
+				F20925D62AB7773E00BE8B27 /* TaskManager.swift in Sources */,
+				F20925D42AB771D300BE8B27 /* UserManager.swift in Sources */,
 				F2DA5B922AA061F20009F6AC /* LoginView.swift in Sources */,
 				F2A9C37A2AA4A33F00B62C0C /* CoreDataManager.swift in Sources */,
 				F2EBCE0F2A92496900D8C6ED /* CoreDataDemo.xcdatamodeld in Sources */,

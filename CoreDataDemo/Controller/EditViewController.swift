@@ -12,6 +12,10 @@ class EditViewController: UIViewController {
     
     
     private let coreDataManager = CoreDataManager.shared
+    lazy var taskManager: Taskmanager = {
+        Taskmanager.init(coreDataManeger: coreDataManager)
+    }()
+    
     let task: SaveEntity
     weak var taskUpdateDelegate: TaskUpdateDelegate?
     
@@ -80,7 +84,8 @@ class EditViewController: UIViewController {
         
         titleTF.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(5)
-            make.left.equalToSuperview().offset(26)
+            make.left.right.equalToSuperview().inset(26)
+            
         }
 
         executorLabel.snp.makeConstraints { make in
@@ -90,7 +95,7 @@ class EditViewController: UIViewController {
         
         executorTF.snp.makeConstraints { make in
             make.top.equalTo(executorLabel.snp.bottom).offset(5)
-            make.left.equalToSuperview().offset(26)
+            make.left.right.equalToSuperview().inset(26)
         }
         
     }
@@ -110,7 +115,7 @@ class EditViewController: UIViewController {
         let titleName = task.title ?? ""
         let executor = executorTF.text ?? ""
 
-        coreDataManager.changeTask(title: titleName, exeutor: executor, newTitleName: newTitleName)
+        taskManager.updateTask(title: titleName, exeutor: executor, newTitleName: newTitleName)
         taskUpdateDelegate?.didUpdateTasks()
         popVC()
     }

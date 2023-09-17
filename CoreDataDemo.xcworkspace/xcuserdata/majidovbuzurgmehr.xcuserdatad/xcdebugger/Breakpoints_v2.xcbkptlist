@@ -108,10 +108,10 @@
             filePath = "CoreDataDemo/CoreDataManager/CoreDataManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "98"
-            endingLineNumber = "98"
-            landmarkName = "changeTask(title:exeutor:newTitleName:)"
-            landmarkType = "7">
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "CoreDataManager"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -124,89 +124,9 @@
             filePath = "CoreDataDemo/CoreDataManager/CoreDataManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
-            landmarkName = "saveCotext()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "29AA6A29-7CCA-47D1-965E-F0ECF763D709"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CoreDataDemo/CoreDataManager/CoreDataManager.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
-            landmarkName = "getTasks()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "FFECBA28-FE70-4107-B5BA-B5FB478AE118"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CoreDataDemo/CoreDataManager/CoreDataManager.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
-            landmarkName = "changeTask(title:exeutor:newTitleName:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "FFECBA28-FE70-4107-B5BA-B5FB478AE118 - 6d4256fa9585a91b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "CoreDataDemo.CoreDataManager.changeTask(title: Swift.String, exeutor: Swift.String, newTitleName: Swift.String) -&gt; ()"
-                  moduleName = "CoreDataDemo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/majidovbuzurgmehr/Desktop/Alif-ToDoList/CoreDataDemo/CoreDataManager/CoreDataManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "109"
-                  endingLineNumber = "109"
-                  offsetFromSymbolStart = "1116">
-               </Location>
-               <Location
-                  uuid = "FFECBA28-FE70-4107-B5BA-B5FB478AE118 - 6d4256fa9585a91b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "CoreDataDemo.CoreDataManager.changeTask(title: Swift.String, exeutor: Swift.String, newTitleName: Swift.String) -&gt; ()"
-                  moduleName = "CoreDataDemo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/majidovbuzurgmehr/Desktop/Alif-ToDoList/CoreDataDemo/CoreDataManager/CoreDataManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "109"
-                  endingLineNumber = "109"
-                  offsetFromSymbolStart = "1457">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "2D565307-36F2-4969-88D7-AF1AD41E1BCE"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CoreDataDemo/CoreDataManager/CoreDataManager.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
-            landmarkName = "getTasks()"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "saveContext()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

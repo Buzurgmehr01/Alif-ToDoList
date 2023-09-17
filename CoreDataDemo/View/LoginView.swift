@@ -20,7 +20,7 @@ class LoginView: UIView {
     }()
     
     let signUpButton: UIButton = {
-        return MainButton().setUpMainButton(title: "Log In", selector: #selector(signUp))
+        return MainButton().setUp(title: "Log In", selector: #selector(signUp))
     }()
     
 

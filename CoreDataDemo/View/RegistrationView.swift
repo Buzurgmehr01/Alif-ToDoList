@@ -20,11 +20,11 @@ class RegistrationView: UIView {
     }()
     
     let signUpButton: UIButton = {
-        return MainButton().setUpMainButton(title: "Sign Up", selector: #selector(signUp))
+        return MainButton().setUp(title: "Sign Up", selector: #selector(signUp))
     }()
     
     let nextSignInButton: UIButton = {
-        return MainButton().setUpLoginButton(title: "Have already account?", selector: #selector(logIn))
+        return LoginButton().setUp(title: "Have already account?", selector: #selector(logIn))
     }()
 
 

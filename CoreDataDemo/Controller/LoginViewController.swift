@@ -11,6 +11,9 @@ class LoginViewController: UIViewController {
     
     let loginview = LoginView()
     let coreDataManager = CoreDataManager.shared
+    lazy var userManager: UserManager = {
+        UserManager.init(coreDataManager: coreDataManager)
+    }()
 
 
     override func viewDidLoad() {
@@ -36,7 +39,7 @@ class LoginViewController: UIViewController {
             CoreDataAlert.showAlert(navController: self.navigationController, title: "Ошибка", message: "Заполните все поля!")
             return }
         
-        let authUser = coreDataManager.authUser(login: login, password: password)
+        let authUser = userManager.authUser(login: login, password: password)
         
         if authUser{
             let vc = TaskViewController()
